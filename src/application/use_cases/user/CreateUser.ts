@@ -13,34 +13,50 @@ interface Dependencies {
   userRepository: UserRepository
 }
 
-export default async function createUser (user: User, { userRepository }: Dependencies) {
-  return userRepository.store({
-    id: generateRandomId(),
-    email: user.email,
-    username: generateUserName(user.email),
-    password: user.password
-  })
+class CreateUserUseCase {
+  private email: string
+  private password: string
+
+  readonly userRepository: UserRepository
+
+  constructor ({ email, password }: User, { userRepository }: Dependencies) {
+    this.email = email
+    this.password = password
+
+    this.userRepository = userRepository
+  }
+
+  public async execute () {
+    return this.userRepository.store({
+      id: this.generateRandomId(),
+      email: this.email,
+      username: this.generateUserName(this.email),
+      password: this.password
+    })
+  }
+
+  private generateRandomId (): string {
+    return generateV4Uuid()
+  }
+
+  private generateUserName (email: string): string {
+    const [username] = email.split('@')
+    const emailBasedUsername = this.getEmailBasedUsername(username)
+    const suffixDigits = this.getDatetimeLastFourDigits()
+    return emailBasedUsername.concat(suffixDigits) || ''
+  }
+
+  private getDatetimeLastFourDigits (): string {
+    return Date.now().toString()
+      .match(LAST_FOUR_DIGITS_EXTRACTOR)
+      ?.join() || ''
+  }
+
+  private getEmailBasedUsername (emailUsername: string): string {
+    return emailUsername
+      .match(RANDOM_USERNAME_EXTRACTOR)
+      ?.join('.') || ''
+  }
 }
 
-function generateRandomId (): string {
-  return generateV4Uuid()
-}
-
-function generateUserName (email: string): string {
-  const [username] = email.split('@')
-  const emailBasedUsername = getEmailBasedUsername(username)
-  const suffixDigits = getDatetimeLastFourDigits()
-  return emailBasedUsername.concat(suffixDigits) || ''
-}
-
-function getDatetimeLastFourDigits (): string {
-  return Date.now().toString()
-    .match(LAST_FOUR_DIGITS_EXTRACTOR)
-    ?.join() || ''
-}
-
-function getEmailBasedUsername (emailUsername: string): string {
-  return emailUsername
-    .match(RANDOM_USERNAME_EXTRACTOR)
-    ?.join('.') || ''
-}
+export default CreateUserUseCase
