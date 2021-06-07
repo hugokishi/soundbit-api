@@ -6,4 +6,4 @@ class Connection {
   }
 }
 
-export default new Connection()
+export default Connection
