@@ -6,6 +6,11 @@
 	"scripts": {
 		"start": "node dist/interface/http/server.js",
 		"start:dev": "nodemon src/interface/http/server.ts",
+		"migration:run": "sucrase-node ./node_modules/.bin/typeorm migration:run",
+		"migration:generate": "sucrase-node ./node_modules/.bin/typeorm migration:generate -n",
+		"migration:create": "sucrase-node ./node_modules/.bin/typeorm migration:create -n",
+		"migration:revert": "sucrase-node ./node_modules/.bin/typeorm migration:revert",
+		"seed": "sucrase-node ./node_modules/typeorm-seeding/dist/cli.js seed",
 		"build": "tsc",
 		"lint": "eslint . --fix"
 	},
@@ -32,8 +37,10 @@
 	"devDependencies": {
 		"@types/express": "^4.17.12",
 		"@types/uuid": "^8.3.0",
+		"@types/node": "^15.6.2",
 		"@typescript-eslint/eslint-plugin": "^4.26.0",
 		"@typescript-eslint/parser": "^4.26.0",
+		"dotenv": "^10.0.0",
 		"eslint": "^7.27.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-config-standard": "^16.0.3",
@@ -48,6 +55,9 @@
 	},
 	"dependencies": {
 		"express": "^4.17.1",
-		"uuid": "^8.3.2"
+		"uuid": "^8.3.2",
+		"pg": "^8.6.0",
+		"reflect-metadata": "^0.1.13",
+		"typeorm": "^0.2.33"
 	}
 }
