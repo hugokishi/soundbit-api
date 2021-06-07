@@ -1,8 +1,9 @@
 interface Dependencies {
   id: string
+  name: string
   username: string
   email: string
-  passwordHash: string
+  password: string
 }
 
 class User {
@@ -11,11 +12,11 @@ class User {
   public email: string
   public password: string
 
-  constructor ({ id, username, email, passwordHash }: Dependencies) {
+  constructor ({ id, username, email, password }: Dependencies) {
     this.id = id
     this.username = username
     this.email = email
-    this.password = passwordHash
+    this.password = password
   }
 }
 
