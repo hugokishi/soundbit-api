@@ -4,7 +4,10 @@ module.exports = [
   {
     name: 'default',
     type: 'postgres',
-    url: process.env.DATABASE_URL,
+    port: process.env.DATABASE_PORT,
+    username: process.env.DATABASE_USER,
+    passowrd: process.env.DATABASE_PASS,
+    database: process.env.DATABASE_NAME,
     synchronize: false,
     logging: false,
     entities: [rootDir + '/infrastructure/database/orm/entities/**/*.{js,ts}'],
