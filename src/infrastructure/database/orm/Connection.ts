@@ -1,7 +1,7 @@
-import { createConnection, Connection as Conn } from 'typeorm'
+import { createConnection } from 'typeorm'
 
 class Connection {
-  static connect (): Promise<Conn> {
+  static connect () {
     return createConnection()
   }
 }
