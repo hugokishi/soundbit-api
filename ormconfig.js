@@ -6,7 +6,7 @@ module.exports = [
     type: 'postgres',
     port: process.env.DATABASE_PORT,
     username: process.env.DATABASE_USER,
-    passowrd: process.env.DATABASE_PASS,
+    password: process.env.DATABASE_PASS,
     database: process.env.DATABASE_NAME,
     synchronize: false,
     logging: false,
