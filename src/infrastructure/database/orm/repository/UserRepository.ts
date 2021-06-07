@@ -1,7 +1,7 @@
 import { Connection as TypeormConn } from 'typeorm'
 import Connection from '../Connection'
 import User from '../../../../domain/User'
-import UserEntity from '../entities/User'
+import UserEntityFactory from '../factories/UserEntityFactory'
 import UserRepository from '../../../../domain/UserRepository'
 
 class UserRepositoryImpl implements UserRepository {
@@ -12,11 +12,10 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   async store (user: User): Promise<User> {
-    const repository = (await this.connection).getRepository(UserEntity)
+    const userEntity = UserEntityFactory.createUser(user);
+    (await this.connection).manager.save(userEntity)
 
-    await repository.save(user)
-
-    return user
+    return userEntity
   }
 }
 
