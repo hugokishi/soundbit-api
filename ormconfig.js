@@ -7,12 +7,12 @@ module.exports = [
     url: process.env.DATABASE_URL,
     synchronize: false,
     logging: false,
-    entities: [rootDir + '/domain/entity/**/*.{js,ts}'],
-    migrations: [rootDir + '/domain/migration/*.{js,ts}'],
-    seeds: [rootDir + '/domain/seeds/**/*.{js,ts}'],
+    entities: [rootDir + '/infrastructure/database/orm/entities/**/*.{js,ts}'],
+    migrations: [rootDir + '/infrastructure/database/orm/migrations/*.{js,ts}'],
+    seeds: [rootDir + '/infrastructure/database/orm/seeds/**/*.{js,ts}'],
     cli: {
-      entitiesDir: 'src/domain/entity',
-      migrationsDir: 'src/domain/migration'
+      entitiesDir: 'src/infrastructure/database/orm/entities',
+      migrationsDir: 'src/infrastructure/database/orm/migrations'
     }
   }
 ]
