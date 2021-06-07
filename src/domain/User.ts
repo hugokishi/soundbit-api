@@ -1,6 +1,6 @@
 interface Dependencies {
   id: string
-  name: string | null
+  name?: string
   username: string
   email: string
   password: string
@@ -8,14 +8,14 @@ interface Dependencies {
 
 class User {
   public id: string
-  public name: string | null
+  public name?: string
   public username: string
   public email: string
   public password: string
 
   constructor ({ id, name, username, email, password }: Dependencies) {
     this.id = id
-    this.name = name || null
+    this.name = name
     this.username = username
     this.email = email
     this.password = password

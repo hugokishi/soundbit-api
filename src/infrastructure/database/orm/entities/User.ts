@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryColumn } from 'typeorm'
 
 interface Props {
-  uuid: string
-  name: string | null
+  id: string
+  name?: string
   username: string
   email: string
   password: string
@@ -11,10 +11,10 @@ interface Props {
 @Entity()
 class User {
   @PrimaryColumn()
-  uuid: string
+  id: string
 
-  @Column()
-  name: string | null
+  @Column({ nullable: true })
+  name?: string
 
   @Column()
   username: string
@@ -25,9 +25,9 @@ class User {
   @Column()
   password: string
 
-  constructor ({ uuid, name, username, email, password }: Props) {
-    this.uuid = uuid
-    this.name = name || null
+  constructor ({ id, name, username, email, password }: Props) {
+    this.id = id
+    this.name = name
     this.username = username
     this.email = email
     this.password = password
