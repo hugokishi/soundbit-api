@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryColumn } from 'typeorm'
 
 interface Props {
   uuid: string
-  name: string
+  name: string | null
   username: string
   email: string
   password: string
@@ -14,7 +14,7 @@ class User {
   uuid: string
 
   @Column()
-  name: string
+  name: string | null
 
   @Column()
   username: string
@@ -27,7 +27,7 @@ class User {
 
   constructor ({ uuid, name, username, email, password }: Props) {
     this.uuid = uuid
-    this.name = name
+    this.name = name || null
     this.username = username
     this.email = email
     this.password = password
