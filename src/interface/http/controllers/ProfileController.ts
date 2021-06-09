@@ -1,6 +1,7 @@
 import ApplicationController from './ApplicationController'
 import CreateProfile from '../../../application/use_cases/profile/CreateProfile'
 import ProfileRepository from '../../../infrastructure/database/orm/repository/ProfileRepository'
+import Serializer from '../serializers/ProfileSerializer'
 
 interface Props {
   email: string
@@ -16,7 +17,7 @@ class ProfileController extends ApplicationController {
       { profileRepository: new ProfileRepository() }
     ).execute()
 
-    this.res.status(201).send(profile)
+    this.res.status(201).send(Serializer.serializeCreation(profile))
   }
 }
 
