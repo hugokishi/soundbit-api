@@ -1,4 +1,4 @@
-const rootDir = process.env.ORM_ROOT_DIR
+const rootDir = process.env.ORM_ROOT_DIR || 'src'
 
 module.exports = [
   {
