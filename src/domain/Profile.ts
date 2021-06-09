@@ -6,7 +6,7 @@ interface Dependencies {
   password: string
 }
 
-class User {
+class Profile {
   public id: string
   public name?: string
   public username: string
@@ -22,4 +22,4 @@ class User {
   }
 }
 
-export default User
+export default Profile

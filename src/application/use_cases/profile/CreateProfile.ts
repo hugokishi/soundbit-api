@@ -1,33 +1,33 @@
 import { v4 as generateV4Uuid } from 'uuid'
-import UserRepository from '../../../domain/UserRepository'
+import ProfileRepository from '../../../domain/ProfileRepository'
 
 const RANDOM_USERNAME_EXTRACTOR = /^\w{2}|\w{2}$/g
 const LAST_FOUR_DIGITS_EXTRACTOR = /\d{4}$/
 
-interface User {
+interface Profile {
   email: string;
   password: string;
 }
 
 interface Dependencies {
-  userRepository: UserRepository
+  profileRepository: ProfileRepository
 }
 
-class CreateUserUseCase {
+class CreateProfileUseCase {
   private email: string
   private password: string
 
-  readonly userRepository: UserRepository
+  readonly profileRepository: ProfileRepository
 
-  constructor ({ email, password }: User, { userRepository }: Dependencies) {
+  constructor ({ email, password }: Profile, { profileRepository }: Dependencies) {
     this.email = email
     this.password = password
 
-    this.userRepository = userRepository
+    this.profileRepository = profileRepository
   }
 
   public async execute () {
-    return this.userRepository.store({
+    return this.profileRepository.store({
       id: this.generateRandomId(),
       email: this.email,
       username: this.generateUserName(this.email),
@@ -59,4 +59,4 @@ class CreateUserUseCase {
   }
 }
 
-export default CreateUserUseCase
+export default CreateProfileUseCase

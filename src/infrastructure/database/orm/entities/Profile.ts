@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn } from 'typeorm'
 
 @Entity()
-class User {
+class Profile {
   @PrimaryColumn()
   id!: string
 
@@ -20,4 +20,4 @@ class User {
   password!: string
 }
 
-export default User
+export default Profile

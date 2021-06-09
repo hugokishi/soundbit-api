@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import UserController from '../controllers/UserController'
+import ProfileController from '../controllers/ProfileController'
 
 class Routes {
   readonly router: Router
@@ -8,11 +8,11 @@ class Routes {
   constructor () {
     this.router = Router()
 
-    this.mountUserRoutes()
+    this.mountProfilesRoutes()
   }
 
-  mountUserRoutes () {
-    this.router.post('/users', (req, res) => new UserController(req, res).store())
+  mountProfilesRoutes () {
+    this.router.post('/profiles', (req, res) => new ProfileController(req, res).store())
   }
 }
 
