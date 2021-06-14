@@ -37,6 +37,9 @@
 			"NODE_ENV": "development"
 		}
 	},
+  "jest": {
+    "preset": "ts-jest"
+  },
 	"devDependencies": {
 		"@types/express": "^4.17.12",
 		"@types/jest": "^26.0.23",
