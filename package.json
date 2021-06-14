@@ -12,7 +12,8 @@
 		"migration:revert": "ts-node-dev ./node_modules/.bin/typeorm migration:revert",
 		"seed": "ts-node-dev ./node_modules/typeorm-seeding/dist/cli.js seed",
 		"build": "tsc",
-		"lint": "eslint . --fix"
+		"lint": "eslint . --fix",
+    "test": "jest"
 	},
 	"repository": {
 		"type": "git",
