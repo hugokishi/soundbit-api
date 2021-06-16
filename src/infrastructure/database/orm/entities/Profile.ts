@@ -2,7 +2,9 @@ import { Entity, Column, PrimaryColumn } from 'typeorm'
 
 @Entity()
 class Profile {
-  @PrimaryColumn()
+  @PrimaryColumn({
+    generated: 'increment'
+  })
   id!: string
 
   @Column({ nullable: true })
