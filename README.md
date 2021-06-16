@@ -91,7 +91,7 @@ $ npm test
 
 ## API Reference
 
-To check the available endpoints to consume this service, check [REFERENCE.md](REFERENCE.md) for details.
+To check the available endpoints to consume this service, check [REFERENCE.md](docs/REFERENCE.md) for details.
 
 ## Authors
 
