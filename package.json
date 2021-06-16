@@ -48,7 +48,6 @@
 		"@types/uuid": "^8.3.0",
 		"@typescript-eslint/eslint-plugin": "^4.26.0",
 		"@typescript-eslint/parser": "^4.26.0",
-		"dotenv": "^10.0.0",
 		"eslint": "^7.27.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-config-standard": "^16.0.3",
@@ -68,6 +67,7 @@
 		"pg": "^8.6.0",
 		"reflect-metadata": "^0.1.13",
 		"typeorm": "^0.2.33",
-		"uuid": "^8.3.2"
+		"uuid": "^8.3.2",
+    "dotenv": "^10.0.0"
 	}
 }
