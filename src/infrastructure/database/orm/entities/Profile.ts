@@ -1,10 +1,9 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm'
+import { Entity, Column, PrimaryColumn, Generated } from 'typeorm'
 
 @Entity()
 class Profile {
-  @PrimaryColumn({
-    generated: 'increment'
-  })
+  @PrimaryColumn()
+  @Generated('uuid')
   id!: string
 
   @Column({ nullable: true })
