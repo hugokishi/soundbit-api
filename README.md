@@ -57,6 +57,12 @@ Then, in another terminal, run the migrations:
 $ npm run migration:run
 ```
 
+After run migration, run seeds:
+
+```sh
+$ npm run seed
+```
+
 ### Running
 
 To start a local server, run:
