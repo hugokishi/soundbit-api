@@ -1,4 +1,3 @@
-import { v4 as generateRandomId } from 'uuid'
 import ProfileRepository from '../../../domain/ProfileRepository'
 
 const RANDOM_USERNAME_EXTRACTOR = /^\w{2}|\w{2}$/g
@@ -28,7 +27,6 @@ class CreateProfileUseCase {
 
   public async execute () {
     return this.profileRepository.store({
-      id: generateRandomId(),
       email: this.email,
       username: this.generateUserName(this.email),
       password: this.password
