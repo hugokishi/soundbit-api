@@ -45,7 +45,6 @@
 		"@types/express": "^4.17.12",
 		"@types/jest": "^26.0.23",
 		"@types/node": "^15.6.2",
-		"@types/uuid": "^8.3.0",
 		"@typescript-eslint/eslint-plugin": "^4.26.0",
 		"@typescript-eslint/parser": "^4.26.0",
 		"eslint": "^7.27.0",
@@ -68,7 +67,6 @@
 		"pg": "^8.6.0",
 		"reflect-metadata": "^0.1.13",
 		"typeorm": "^0.2.33",
-		"typeorm-seeding": "^1.6.1",
-		"uuid": "^8.3.2"
+		"typeorm-seeding": "^1.6.1"
 	}
 }
