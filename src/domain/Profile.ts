@@ -1,5 +1,5 @@
 interface Dependencies {
-  id: string
+  id?: string
   name?: string
   username: string
   email: string
@@ -7,7 +7,7 @@ interface Dependencies {
 }
 
 class Profile {
-  public id: string
+  public id?: string
   public name?: string
   public username: string
   public email: string
