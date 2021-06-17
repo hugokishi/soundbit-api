@@ -1,4 +1,4 @@
-**This PR refers to these jira items:**
+**There is no documentation in the project. This PR fixes this:**
 
 -
 

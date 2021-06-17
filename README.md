@@ -60,7 +60,7 @@ $ npm run migration:run
 After run migration, run seeds:
 
 ```sh
-$ npm run seeds
+$ npm run seed
 ```
 
 ### Running
