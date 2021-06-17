@@ -4,7 +4,7 @@ import { Entity, Column, PrimaryColumn, Generated } from 'typeorm'
 class Profile {
   @PrimaryColumn()
   @Generated('uuid')
-  id!: string
+  id?: string
 
   @Column({ nullable: true })
   name?: string
