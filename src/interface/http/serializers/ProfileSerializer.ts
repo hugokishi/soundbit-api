@@ -4,7 +4,7 @@ class ProfileSerializer {
   static serializeCreation (profile: Profile) {
     return {
       message: 'New profile created successfully',
-      profile
+      profile: { ...profile, password: undefined }
     }
   }
 }
