@@ -12,6 +12,7 @@ class Application {
     this.express = express()
 
     this.includeEnvironmentConfig()
+    console.log('Enviroment', process.env.DATABASE_URL)
     connection()
     this.includeMiddlewares()
     this.includeRoutes()
