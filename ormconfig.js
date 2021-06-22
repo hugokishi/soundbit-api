@@ -1,4 +1,5 @@
 const rootDir = process.env.ORM_ROOT_DIR
+console.log('Postgres URL', process.env.DATABASE_URL)
 
 module.exports = {
   type: 'postgres',
