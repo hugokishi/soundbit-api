@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import * as dotenv from 'dotenv'
 import express from 'express'
-import { createConnection } from 'typeorm'
+import connection from '../../infrastructure/database/orm/connection'
 
 import routes from './routes/api'
 
@@ -12,7 +12,7 @@ class Application {
     this.express = express()
 
     this.includeEnvironmentConfig()
-    this.includeDatabaseConnection()
+    connection()
     this.includeMiddlewares()
     this.includeRoutes()
   }
@@ -22,10 +22,6 @@ class Application {
       ? '.env'
       : `.env.${process.env.NODE_ENV}`
     dotenv.config({ path })
-  }
-
-  private includeDatabaseConnection (): void {
-    createConnection().then()
   }
 
   private includeMiddlewares (): void {
