@@ -1,7 +1,7 @@
 import { getConnectionOptions, ConnectionOptions, createConnection } from 'typeorm'
 import * as dotenv from 'dotenv'
 dotenv.config()
-console.log('Enviroment', process.env.DATABASE_URL)
+
 const getOptions = async () => {
   let connectionOptions: ConnectionOptions
   connectionOptions = {
@@ -23,7 +23,7 @@ const getOptions = async () => {
   } else {
     connectionOptions = await getConnectionOptions()
   }
-
+  console.log(connectionOptions)
   return connectionOptions
 }
 
