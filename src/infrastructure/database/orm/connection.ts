@@ -23,14 +23,12 @@ const getOptions = async () => {
   } else {
     connectionOptions = await getConnectionOptions()
   }
-  console.log(connectionOptions)
   return connectionOptions
 }
 
 const connectDatabase = async (): Promise<void> => {
   const typeormconfig = await getOptions()
   await createConnection(typeormconfig)
-  console.log('Database Connected')
 }
 
 export default connectDatabase
