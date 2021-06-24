@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv'
 import express from 'express'
 import connection from '../../infrastructure/database/orm/connection'
 import morgan from 'morgan'
+import cors from 'cors'
 
 import routes from './routes/api'
 
@@ -26,6 +27,21 @@ class Application {
   }
 
   private includeMiddlewares (): void {
+    this.express.use(cors({
+      credentials: true,
+      origin: [
+        'http://localhost:3000'
+      ],
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      allowedHeaders: [
+        'Content-Type',
+        'Authorization',
+        'Accept',
+        'X-Requested-With',
+        'Content-Length'
+      ]
+    }))
+
     this.express.use(morgan(function (tokens, req, res): any {
       return [
         tokens.method(req, res),
