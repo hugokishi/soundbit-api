@@ -8,9 +8,6 @@ const getOptions = async () => {
     type: 'postgres',
     synchronize: false,
     logging: false,
-    extra: {
-      ssl: true
-    },
     entities: [process.env.ORM_ROOT_DIR + '/infrastructure/database/orm/entities/**/*.{js,ts}'],
     migrations: [process.env.ORM_ROOT_DIR + '/infrastructure/database/orm/migrations/*.{js,ts}'],
     cli: {
