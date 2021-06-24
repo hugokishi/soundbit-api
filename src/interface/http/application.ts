@@ -2,6 +2,7 @@ import 'reflect-metadata'
 import * as dotenv from 'dotenv'
 import express from 'express'
 import connection from '../../infrastructure/database/orm/connection'
+import morgan from 'morgan'
 
 import routes from './routes/api'
 
@@ -25,6 +26,15 @@ class Application {
   }
 
   private includeMiddlewares (): void {
+    this.express.use(morgan(function (tokens, req, res): any {
+      return [
+        tokens.method(req, res),
+        tokens.url(req, res),
+        tokens.status(req, res),
+        tokens.res(req, res, 'content-length'), '-',
+        tokens['response-time'](req, res), 'ms'
+      ].join(' ')
+    }))
     // @ts-ignore
     this.express.use(express.json())
   }
