@@ -5,7 +5,6 @@ module.exports = {
   url: process.env.DATABASE_URL,
   synchronize: false,
   logging: true,
-  ssl: true,
   entities: [rootDir + '/infrastructure/database/orm/entities/**/*.{js,ts}'],
   migrations: [rootDir + '/infrastructure/database/orm/migrations/*.{js,ts}'],
   seeds: [rootDir + '/infrastructure/database/orm/seeds/**/*.{js,ts}'],
