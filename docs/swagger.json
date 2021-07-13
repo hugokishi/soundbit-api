@@ -1,0 +1,99 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sound Bit API",
+    "description": "Documentation for API",
+    "termsOfService": "https://github.com/ramos-ph/soundbit-api/blob/main/LICENSE.md",
+    "contact": {
+      "email": "soundbit@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api",
+      "description": "REST API"
+    }
+  ],
+  "paths": {
+    "/profiles": {
+      "post": {
+        "summary": "Route for create a profile",
+        "description": "Creates a new profile",
+        "tags": ["Profiles"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Profile"
+              },
+              "examples": {
+                "profile": {
+                  "value": {
+                    "email": "soundbit@soundbit.com",
+                    "password": "soundbit"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/ProfileResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Profile": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "ProfileResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "boolean"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+}

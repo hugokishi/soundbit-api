@@ -1,11 +1,13 @@
 import 'reflect-metadata'
 import * as dotenv from 'dotenv'
 import express from 'express'
-import connection from '../../infrastructure/database/orm/connection'
 import morgan from 'morgan'
 import cors from 'cors'
+import swaggerUi from 'swagger-ui-express'
 
+import connection from '../../infrastructure/database/orm/connection'
 import routes from './routes/api'
+import swaggerDocs from '../../../docs/swagger.json'
 
 class Application {
   public express: express.Application;
@@ -57,6 +59,7 @@ class Application {
 
   private includeRoutes (): void {
     this.express.get('/health', (_, res) => res.send('App up and running.'))
+    this.express.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
     this.express.use('/api', routes)
   }
