@@ -11,6 +11,7 @@
 		"migration:create": "ts-node-dev ./node_modules/.bin/typeorm migration:create -n",
 		"migration:revert": "ts-node-dev ./node_modules/.bin/typeorm migration:revert",
 		"seed": "ts-node-dev ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "heroku-postbuild": "next build",
 		"build": "tsc",
 		"lint": "eslint . --fix",
 		"test": "jest"
