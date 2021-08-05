@@ -4,6 +4,7 @@
 	"version": "0.1.0",
 	"license": "MIT",
 	"scripts": {
+    "postinstall": "npm run build",
 		"start": "node dist/interface/http/server.js",
 		"start:dev": "nodemon src/interface/http/server.ts",
 		"migration:run": "ts-node-dev ./node_modules/.bin/typeorm migration:run",
