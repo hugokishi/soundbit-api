@@ -21,10 +21,6 @@ const uploads = multer({
   },
   fileFilter: (req, file, cb) => {
     const allowedMimes = [
-      'image/jpeg',
-      'image/pjpeg',
-      'image/png',
-      'image/gif',
       'audio/mp3',
       'audio/mp4'
     ]
