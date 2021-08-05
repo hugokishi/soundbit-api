@@ -1,6 +1,7 @@
 # node.js
 node_modules/
 yarn.lock
+package-lock.json
 
 # misc
 dist/

@@ -8,6 +8,7 @@ module.exports = {
   entities: [rootDir + '/infrastructure/database/orm/entities/**/*.{js,ts}'],
   migrations: [rootDir + '/infrastructure/database/orm/migrations/*.{js,ts}'],
   seeds: [rootDir + '/infrastructure/database/orm/seeds/**/*.{js,ts}'],
+  ssl: true,
   cli: {
     entitiesDir: 'src/infrastructure/database/orm/entities',
     migrationsDir: 'src/infrastructure/database/orm/migrations'
