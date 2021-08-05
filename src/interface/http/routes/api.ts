@@ -1,7 +1,9 @@
 import { Router } from 'express'
+import MulterUpload from '../../../config/multer'
 
 import ProfileController from '../controllers/ProfileController'
 import SessionController from '../controllers/SessionController'
+import MusicController from '../controllers/MusicController'
 
 class Routes {
   readonly router: Router
@@ -11,6 +13,7 @@ class Routes {
 
     this.mountProfilesRoutes()
     this.mountSessionRoutes()
+    this.mountMusicRoutes()
   }
 
   mountProfilesRoutes () {
@@ -19,6 +22,10 @@ class Routes {
 
   mountSessionRoutes () {
     this.router.post('/sessions', (req, res) => new SessionController(req, res).store())
+  }
+
+  mountMusicRoutes () {
+    this.router.post('/musics', MulterUpload.single('file'), (req, res) => new MusicController(req, res).store())
   }
 }
 

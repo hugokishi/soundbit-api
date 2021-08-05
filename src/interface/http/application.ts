@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv'
 import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
+import path from 'path'
 import swaggerUi from 'swagger-ui-express'
 
 import connection from '../../infrastructure/database/orm/connection'
@@ -60,6 +61,7 @@ class Application {
   private includeRoutes (): void {
     this.express.get('/health', (_, res) => res.send('App up and running.'))
     this.express.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+    this.express.use('/files', express.static(path.resolve(__dirname, '..', '..', '..', 'public', 'musics')))
 
     this.express.use('/api', routes)
   }
