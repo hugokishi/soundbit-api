@@ -1,19 +1,6 @@
-**There is documentation in the project. This PR fixes this:**
-
--
-
-**These are the changes this PR introduces:**
-
--
+**Context**
 
 <!--
-Example:
-
-- New products endpoint
-- Fixed a typo on Users screen
+An short and explanatory text to explain
+why are you making these changes
 -->
-
-**Checklist**
-
-- [ ] Updated unit tests (or N/A)
-- [ ] Created migrations (or N/A)
