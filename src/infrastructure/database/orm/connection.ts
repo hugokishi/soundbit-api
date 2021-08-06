@@ -13,6 +13,11 @@ const getOptions = async () => {
     cli: {
       entitiesDir: 'src/infrastructure/database/orm/entities',
       migrationsDir: 'src/infrastructure/database/orm/migrations'
+    },
+    extra: {
+      ssl: {
+        rejectUnauthorized: false
+      }
     }
   }
   if (process.env.DATABASE_URL) {
