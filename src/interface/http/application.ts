@@ -32,9 +32,6 @@ class Application {
   private includeMiddlewares (): void {
     this.express.use(cors({
       credentials: true,
-      origin: [
-        'http://localhost:3000'
-      ],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       allowedHeaders: [
         'Content-Type',
